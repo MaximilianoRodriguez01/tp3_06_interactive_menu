@@ -217,7 +217,7 @@ void task_menu_update(void *parameters)
 					}
 					if (p_task_menu_dta->event == EV_MEN_NEX_ACTIVE &&
 						p_task_menu_dta->motor == 2){
-						motor = 1;
+						p_task_menu_dta->motor = 1;
 					}
 					if (p_task_menu_dta->event == EV_MEN_ENT_ACTIVE){
 						p_task_menu_dta->option = 1;
