@@ -94,6 +94,7 @@ void app_init(void)
 {
 	uint32_t index;
 
+
 	/* Print out: Application Initialized */
 	LOGGER_LOG("\r\n");
 	LOGGER_LOG("%s is running - Tick [mS] = %d\r\n", GET_NAME(app_init), (int)HAL_GetTick());
@@ -117,6 +118,7 @@ void app_init(void)
 	}
 
 	cycle_counter_init();
+
 }
 
 void app_update(void)

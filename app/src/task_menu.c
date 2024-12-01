@@ -202,12 +202,18 @@ void task_menu_update(void *parameters)
 
 				case ST_MEN_MAIN_ACTIVE:
 
+					displayCharPositionWrite(0, 0);
+					displayStringWrite("TdSE Bienvenidos");
+
 					if (p_task_menu_dta->event == EV_MEN_ENT_ACTIVE){
-						p_task_menu_dta->motor == 1;
+						p_task_menu_dta->motor = 1;
 						p_task_menu_dta->state = ST_MEN_01_ACTIVE;
 					}
 
 				case ST_MEN_01_ACTIVE:
+					displayCharPositionWrite(0, 0);
+					displayStringWrite("Menu 1");
+
 					if (p_task_menu_dta->event == EV_MEN_ESC_ACTIVE){
 						p_task_menu_dta->state = ST_MEN_MAIN_ACTIVE;
 					}
@@ -225,6 +231,10 @@ void task_menu_update(void *parameters)
 					}
 
 				case ST_MEN_02_ACTIVE:
+
+					displayCharPositionWrite(0, 0);
+					displayStringWrite("MENU 2");
+
 					if (p_task_menu_dta->event == EV_MEN_ESC_ACTIVE){
 						p_task_menu_dta->motor = 1;
 						p_task_menu_dta->state = ST_MEN_01_ACTIVE;
@@ -264,6 +274,9 @@ void task_menu_update(void *parameters)
 
 				case ST_MEN_03_POWER_ACTIVE:
 
+					displayCharPositionWrite(0, 0);
+					displayStringWrite("Power ACTIVE");
+
 					if (p_task_menu_dta->event == EV_MEN_ESC_ACTIVE){
 						p_task_menu_dta->option = 1;
 						p_task_menu_dta->state = ST_MEN_02_ACTIVE;
@@ -271,14 +284,17 @@ void task_menu_update(void *parameters)
 
 					if (p_task_menu_dta->event == EV_MEN_NEX_ACTIVE &&
 						p_task_menu_dta->pwr_option == false){
-						p_task_menu_dta->pwr_option == true;
+						p_task_menu_dta->pwr_option = true;
 					}
 
-					if (p_task_menu_dta->event == EV_MEN_NEX_ACTIVE &&
-						p_task_menu_dta->pwr_option == true);
-						p_task_menu_dta->pwr_option == false;
+					if ((p_task_menu_dta->event == EV_MEN_NEX_ACTIVE) &&
+						(p_task_menu_dta->pwr_option == true)){
+						p_task_menu_dta->pwr_option = false;
+					}
 
 				case ST_MEN_03_SPEED_ACTIVE:
+					displayCharPositionWrite(0, 0);
+					displayStringWrite("SPEED ACTIVE");
 
 					if (p_task_menu_dta->event == EV_MEN_ESC_ACTIVE){
 						p_task_menu_dta->option = 1;
@@ -296,6 +312,8 @@ void task_menu_update(void *parameters)
 					}
 
 				case ST_MEN_03_SPIN_ACTIVE:
+					displayCharPositionWrite(0, 0);
+					displayStringWrite("SPIN ACTIVE");
 
 					if (p_task_menu_dta->event == EV_MEN_ESC_ACTIVE){
 						p_task_menu_dta->option = 1;
@@ -308,7 +326,7 @@ void task_menu_update(void *parameters)
 
 					if (p_task_menu_dta->event == EV_MEN_NEX_ACTIVE &&
 						p_task_menu_dta->spin_option == true)
-						p_task_menu_dta->spin_option = false;
+							p_task_menu_dta->spin_option = false;
 
 
 
